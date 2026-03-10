@@ -17,19 +17,19 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
         <Link
           href="/"
-          className="min-w-0 flex items-center gap-2 rounded-full border border-[#6B3E26]/10 bg-white/75 px-2 py-2 pr-3 text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C]/30 sm:gap-3 sm:pr-4"
+          className="flex items-center gap-2 rounded-full border border-[#6B3E26]/10 bg-white/75 px-2 py-2 pr-3 text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C]/30 sm:gap-3 sm:pr-4 xl:min-w-[250px]"
         >
-          <div className="overflow-hidden rounded-full border border-[#6B3E26]/10 bg-[#2B1B12] p-1 shadow-sm">
+          <div className="overflow-hidden rounded-2xl border border-[#6B3E26]/10 bg-white px-2 py-1 shadow-sm">
             <Image
               src={assetPath("/logo.png")}
               alt="Anadolu Baglama Akademisi logo"
-              width={44}
-              height={44}
-              className="h-9 w-9 rounded-full object-cover sm:h-11 sm:w-11"
+              width={120}
+              height={64}
+              className="h-9 w-auto max-w-[70px] object-contain sm:h-11 sm:max-w-[86px]"
               priority
             />
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 xl:min-w-[140px]">
             <p className="truncate text-xs font-semibold tracking-wide text-[#2B1B12] sm:text-sm xl:text-base">
               Anadolu Baglama Akademisi
             </p>
@@ -39,7 +39,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-full border border-[#6B3E26]/10 bg-white/72 p-2 shadow-[0_18px_48px_rgba(43,27,18,0.08)] xl:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-[#6B3E26]/10 bg-white/72 p-2 shadow-[0_18px_48px_rgba(43,27,18,0.08)] xl:flex xl:flex-1 xl:justify-center">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
 
@@ -134,13 +134,13 @@ export function SiteHeader() {
             >
               <div className="flex items-center justify-between border-b border-[#6B3E26]/10 px-5 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="overflow-hidden rounded-full border border-[#6B3E26]/10 bg-[#2B1B12] p-1 shadow-sm">
+                  <div className="overflow-hidden rounded-2xl border border-[#6B3E26]/10 bg-white px-2 py-1 shadow-sm">
                     <Image
                       src={assetPath("/logo.png")}
                       alt="Anadolu Baglama Akademisi logo"
-                      width={38}
-                      height={38}
-                      className="h-9 w-9 rounded-full object-cover"
+                      width={96}
+                      height={52}
+                      className="h-9 w-auto max-w-[72px] object-contain"
                     />
                   </div>
                   <div>

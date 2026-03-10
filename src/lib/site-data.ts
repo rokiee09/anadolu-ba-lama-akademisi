@@ -15,7 +15,7 @@ export const contact = {
   phone: "+90 532 000 00 00",
   whatsapp: "https://wa.me/905320000000",
   email: "kayit@anadolubaglamaakademisi.com",
-  address: "Kadikoy / Istanbul",
+  address: "Efeler / Aydin",
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Kadikoy%20Istanbul&output=embed",
+    "https://www.google.com/maps?q=Efeler%20Aydin&output=embed",
 };
