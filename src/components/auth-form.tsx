@@ -1,52 +1,72 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, type ReactNode } from "react";
-import { useFormStatus } from "react-dom";
-import { signInAction, signUpAction } from "@/app/actions/auth";
+import { useRouter } from "next/navigation";
+import { useState, type FormEvent, type ReactNode } from "react";
+import { setBrowserDemoSession } from "@/lib/browser-demo";
 import {
   initialAuthActionState,
   type AuthActionState,
 } from "@/lib/auth-schema";
 
-function AuthSubmitButton({ label }: { label: string }) {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="rounded-full bg-amber-400 px-5 py-3 font-semibold text-stone-950 transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
-    >
-      {pending ? "Bekleyin..." : label}
-    </button>
-  );
-}
-
 function AuthCard({
   title,
   description,
   submitLabel,
-  action,
+  mode,
   footer,
 }: {
   title: string;
   description: string;
   submitLabel: string;
-  action: typeof signInAction | typeof signUpAction;
+  mode: "signin" | "signup";
   footer: ReactNode;
 }) {
-  const [state, formAction] = useActionState<AuthActionState, FormData>(
-    action,
-    initialAuthActionState,
-  );
+  const router = useRouter();
+  const [state, setState] = useState<AuthActionState>(initialAuthActionState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const email = String(formData.get("email") ?? "").trim();
+    const password = String(formData.get("password") ?? "");
+
+    if (!email || !email.includes("@")) {
+      setState({ success: false, message: "Gecerli bir e-posta adresi girin." });
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!password || password.length < 6) {
+      setState({ success: false, message: "Sifre en az 6 karakter olmali." });
+      setIsSubmitting(false);
+      return;
+    }
+
+    setBrowserDemoSession(email);
+    setState({
+      success: true,
+      message:
+        mode === "signin"
+          ? "Demo girisi basarili. Portale yonlendiriliyorsunuz."
+          : "Demo hesap olusturuldu. Portale yonlendiriliyorsunuz.",
+    });
+
+    window.setTimeout(() => {
+      router.push("/portal");
+      router.refresh();
+    }, 400);
+  };
 
   return (
     <div className="card-surface p-8">
       <h2 className="text-2xl font-semibold text-white">{title}</h2>
       <p className="mt-4 leading-7 text-stone-300">{description}</p>
 
-      <form action={formAction} className="mt-8 space-y-4">
+      <form onSubmit={handleSubmit} className="mt-8 space-y-4">
         <label className="block space-y-2">
           <span className="text-sm font-medium text-stone-200">E-posta</span>
           <input
@@ -79,7 +99,13 @@ function AuthCard({
           </p>
         ) : null}
 
-        <AuthSubmitButton label={submitLabel} />
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="rounded-full bg-amber-400 px-5 py-3 font-semibold text-stone-950 transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
+        >
+          {isSubmitting ? "Bekleyin..." : submitLabel}
+        </button>
       </form>
 
       <div className="mt-6 text-sm text-stone-400">{footer}</div>
@@ -94,7 +120,7 @@ export function AuthForms() {
         title="Ogrenci girisi"
         description="Mevcut hesabinizla portale girerek video derslere, PDF notlara ve odev alanina ulasin."
         submitLabel="Giris Yap"
-        action={signInAction}
+        mode="signin"
         footer={
           <>
             Kaydiniz yoksa sagdaki formu kullanin veya{" "}
@@ -110,10 +136,10 @@ export function AuthForms() {
         title="Yeni hesap olustur"
         description="Yeni ogrenciler icin portal hesabi acin. Sonrasinda ders moduleri ve icerikler hesapla eslestirilebilir."
         submitLabel="Kayit Ol"
-        action={signUpAction}
+        mode="signup"
         footer={
           <>
-            Kayit sonrasi dogrulama gerekirse Supabase e-posta ayarlari kullanilir.
+            Bu kurulum GitHub Pages uyumlu demo modla tarayici icinde calisir.
           </>
         }
       />

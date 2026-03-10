@@ -1,36 +1,24 @@
 import Image from "next/image";
-import { redirect } from "next/navigation";
 import { AuthForms } from "@/components/auth-form";
 import { PageHero } from "@/components/page-hero";
-import { getCurrentUser } from "@/lib/supabase-server";
-import { getSupabaseEnv } from "@/lib/supabase-config";
 
-export default async function GirisPage() {
-  const { authConfigured } = getSupabaseEnv();
-  const user = await getCurrentUser();
-
-  if (user) {
-    redirect("/portal");
-  }
-
+export default function GirisPage() {
   return (
     <main>
       <PageHero
         kicker="Ogrenci Girisi"
         title="Portal icin giris ve hesap olusturma altyapisi hazir"
-        description="Supabase bagliysa gercek auth ile, degilse otomatik demo moduyla ogrenci girisini hemen test edebilirsiniz."
+        description="GitHub Pages uyumlu demo modda ogrenci girisini bu tarayici uzerinden hemen test edebilirsiniz."
       />
 
       <section className="section-shell py-16">
-        {!authConfigured ? (
-          <div className="card-surface mb-6 p-6">
-            <p className="section-kicker">Demo modu aktif</p>
-            <p className="mt-4 leading-7 text-stone-300">
-              Auth ekranlari hazir. Supabase tanimli degilse bile bu formu kullanarak
-              demo oturumu acabilir ve portal akislarini uctan uca test edebilirsiniz.
-            </p>
-          </div>
-        ) : null}
+        <div className="card-surface mb-6 p-6">
+          <p className="section-kicker">Demo modu aktif</p>
+          <p className="mt-4 leading-7 text-stone-300">
+            Bu alan GitHub Pages icin tarayici tabanli demo oturum kullaniyor.
+            Gecerli bir e-posta ve en az 6 karakterli sifre ile portal akisini test edebilirsiniz.
+          </p>
+        </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="dark-panel motif-overlay overflow-hidden rounded-3xl border border-white/10 p-6">

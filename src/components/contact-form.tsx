@@ -1,26 +1,12 @@
 "use client";
 
-import { useActionState } from "react";
-import { useFormStatus } from "react-dom";
-import { submitContactForm } from "@/app/actions/contact";
+import { useState, type FormEvent } from "react";
+import { saveBrowserDemoLead } from "@/lib/browser-demo";
+import { contactFormSchema } from "@/lib/contact-schema";
 import {
   initialContactActionState,
   type ContactActionState,
 } from "@/lib/contact-schema";
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="rounded-full bg-amber-400 px-6 py-3 font-semibold text-stone-950 transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
-    >
-      {pending ? "Gonderiliyor..." : "Basvuruyu Gonder"}
-    </button>
-  );
-}
 
 function FieldMessage({
   state,
@@ -39,13 +25,61 @@ function FieldMessage({
 }
 
 export function ContactForm() {
-  const [state, formAction] = useActionState(
-    submitContactForm,
-    initialContactActionState,
-  );
+  const [state, setState] = useState<ContactActionState>(initialContactActionState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const parsed = contactFormSchema.safeParse({
+      fullName: formData.get("fullName"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      level: formData.get("level"),
+      interest: formData.get("interest"),
+      message: formData.get("message"),
+    });
+
+    if (!parsed.success) {
+      const flattened = parsed.error.flatten().fieldErrors;
+      setState({
+        success: false,
+        message: "Formu gondermeden once eksik alanlari duzeltin.",
+        fieldErrors: {
+          fullName: flattened.fullName?.[0],
+          phone: flattened.phone?.[0],
+          email: flattened.email?.[0],
+          level: flattened.level?.[0],
+          interest: flattened.interest?.[0],
+          message: flattened.message?.[0],
+        },
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    saveBrowserDemoLead({
+      full_name: parsed.data.fullName,
+      phone: parsed.data.phone,
+      email: parsed.data.email,
+      level: parsed.data.level,
+      interest: parsed.data.interest,
+      message: parsed.data.message,
+    });
+
+    setState({
+      success: true,
+      message:
+        "Basvurunuz demo modunda bu tarayicida kaydedildi. GitHub Pages uzerinde de ayni sekilde calisir.",
+    });
+    event.currentTarget.reset();
+    setIsSubmitting(false);
+  };
 
   return (
-    <form action={formAction} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
         <label className="space-y-2">
           <span className="text-sm font-medium text-stone-200">Ad soyad</span>
@@ -138,7 +172,13 @@ export function ContactForm() {
         </p>
       ) : null}
 
-      <SubmitButton />
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="rounded-full bg-amber-400 px-6 py-3 font-semibold text-stone-950 transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
+      >
+        {isSubmitting ? "Gonderiliyor..." : "Basvuruyu Gonder"}
+      </button>
     </form>
   );
 }
