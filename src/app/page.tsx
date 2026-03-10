@@ -113,7 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell py-20">
+      <section className="section-shell section-divider py-20">
         <AnimatedReveal>
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="space-y-4">
@@ -132,9 +132,14 @@ export default function Home() {
           {courseLevels.map((level, index) => (
             <AnimatedReveal key={level.slug} delay={index * 0.08}>
               <article className="card-surface card-hover h-full p-8">
-                <span className="text-3xl text-[#C8A24C]">
-                  {index === 0 ? "🎸" : index === 1 ? "🎵" : "🪕"}
-                </span>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="rounded-2xl bg-[#2B1B12] px-4 py-3 text-3xl text-[#C8A24C] shadow-[0_16px_32px_rgba(43,27,18,0.18)]">
+                    {index === 0 ? "🎸" : index === 1 ? "🎵" : "🪕"}
+                  </span>
+                  <span className="rounded-full border border-[#C8A24C]/30 bg-[#C8A24C]/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#A17A22]">
+                    {level.price}
+                  </span>
+                </div>
                 <h3 className="mt-5 text-2xl font-semibold text-[#2B1B12]">{level.title}</h3>
                 <p className="mt-3 leading-7 text-[#6A574B]">{level.subtitle}</p>
                 <p className="mt-4 text-sm uppercase tracking-[0.2em] text-[#C8A24C]">
@@ -148,6 +153,14 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href="/saz-kursu" className="secondary-button px-5 py-3 text-sm">
+                    Programi Incele
+                  </Link>
+                  <Link href="/iletisim" className="primary-button px-5 py-3 text-sm">
+                    Basvur
+                  </Link>
+                </div>
               </article>
             </AnimatedReveal>
           ))}
@@ -211,7 +224,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell py-20">
+      <section className="section-shell section-divider py-20">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <AnimatedReveal className="card-surface p-8">
             <p className="section-kicker">Egitmen</p>
@@ -278,7 +291,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell py-20">
+      <section className="section-shell section-divider py-20">
         <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr]">
           <AnimatedReveal className="card-surface p-8">
             <p className="section-kicker">Online dersler</p>
@@ -336,7 +349,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell py-20">
+      <section className="section-shell section-divider py-20">
         <AnimatedReveal>
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="space-y-4">
@@ -354,7 +367,14 @@ export default function Home() {
           {featuredSongs.map((song, index) => (
             <AnimatedReveal key={song.title} delay={index * 0.08}>
               <article className="card-surface card-hover h-full p-8">
-                <p className="text-3xl text-[#C8A24C]">🎶</p>
+                <div className="flex items-start justify-between gap-4">
+                  <p className="rounded-2xl bg-[#2B1B12] px-4 py-3 text-3xl text-[#C8A24C] shadow-[0_16px_32px_rgba(43,27,18,0.18)]">
+                    🎶
+                  </p>
+                  <span className="rounded-full border border-[#6B3E26]/10 bg-[#6B3E26]/4 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[#6A574B]">
+                    Turku Ogren
+                  </span>
+                </div>
                 <h3 className="mt-5 text-2xl font-semibold text-[#2B1B12]">{song.title}</h3>
                 <p className="mt-3 text-[#6A574B]">{song.level}</p>
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -367,13 +387,31 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href={song.videoHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="primary-button px-5 py-3 text-sm"
+                  >
+                    Videoyu Ac
+                  </Link>
+                  <Link
+                    href={song.noteHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="secondary-button px-5 py-3 text-sm"
+                  >
+                    Notayi Gor
+                  </Link>
+                </div>
               </article>
             </AnimatedReveal>
           ))}
         </div>
       </section>
 
-      <section className="section-shell py-20">
+      <section className="section-shell section-divider py-20">
         <AnimatedReveal>
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="space-y-4">
@@ -404,7 +442,7 @@ export default function Home() {
         </AnimatedReveal>
       </section>
 
-      <section className="section-shell pb-24">
+      <section className="section-shell section-divider pb-24">
         <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
           <AnimatedReveal className="card-surface overflow-hidden p-10">
             <div className="space-y-4">

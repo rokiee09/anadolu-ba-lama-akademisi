@@ -186,16 +186,22 @@ export const featuredSongs = [
     title: "Uzun Ince Bir Yoldayim",
     level: "Baslangic - Orta",
     assets: ["Video", "Nota PDF"],
+    videoHref: "https://www.youtube.com/results?search_query=Uzun+Ince+Bir+Yoldayim+baglama",
+    noteHref: "https://www.google.com/search?q=Uzun+Ince+Bir+Yoldayim+baglama+nota+pdf",
   },
   {
     title: "Mihriban",
     level: "Orta Seviye",
     assets: ["Video", "Parmak pozisyonu"],
+    videoHref: "https://www.youtube.com/results?search_query=Mihriban+baglama",
+    noteHref: "https://www.google.com/search?q=Mihriban+baglama+nota+pdf",
   },
   {
     title: "Canakkale Turkusu",
     level: "Orta - Ileri",
     assets: ["Video", "Nota PDF"],
+    videoHref: "https://www.youtube.com/results?search_query=Canakkale+Turkusu+baglama",
+    noteHref: "https://www.google.com/search?q=Canakkale+Turkusu+baglama+nota+pdf",
   },
 ] as const;
 

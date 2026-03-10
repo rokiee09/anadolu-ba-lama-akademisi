@@ -6,7 +6,7 @@ import { contact, navigation } from "@/lib/site-data";
 export function SiteFooter() {
   return (
     <footer className="dark-panel motif-overlay border-t border-white/10">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[1.2fr_0.9fr_0.9fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[1.15fr_0.85fr_1fr]">
         <div className="space-y-4">
           <div className="flex items-center gap-4">
             <div className="overflow-hidden rounded-full border border-white/10 bg-black/30 p-1">
@@ -62,9 +62,17 @@ export function SiteFooter() {
           <p>{contact.phone}</p>
           <p>{contact.email}</p>
           <p>{contact.address}</p>
-          <Link href={contact.whatsapp} className="inline-block text-amber-300 hover:text-amber-200">
-            WhatsApp ile bilgi al
-          </Link>
+          <div className="grid gap-2 pt-2">
+            <Link href={contact.whatsapp} className="inline-block text-amber-300 hover:text-amber-200">
+              WhatsApp
+            </Link>
+            <Link href={contact.instagram} className="inline-block text-stone-200 hover:text-white">
+              Instagram
+            </Link>
+            <Link href={contact.youtube} className="inline-block text-stone-200 hover:text-white">
+              YouTube
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

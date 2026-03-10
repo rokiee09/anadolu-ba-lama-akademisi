@@ -16,6 +16,8 @@ export const contact = {
   whatsapp: "https://wa.me/905320000000",
   email: "kayit@anadolubaglamaakademisi.com",
   address: "Efeler / Aydin",
+  instagram: "https://www.instagram.com/",
+  youtube: "https://www.youtube.com/",
   mapEmbedUrl:
     "https://www.google.com/maps?q=Efeler%20Aydin&output=embed",
 };

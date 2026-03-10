@@ -42,7 +42,7 @@ a {
 }
 
 .section-shell {
-  @apply mx-auto max-w-7xl px-6;
+  @apply mx-auto max-w-7xl px-4 sm:px-6;
 }
 
 .section-kicker {
@@ -53,18 +53,39 @@ a {
 .section-title {
   font-family: var(--font-playfair), Georgia, serif;
   color: var(--deep);
-  @apply text-3xl font-semibold md:text-5xl;
+  @apply text-4xl font-semibold leading-tight md:text-5xl;
 }
 
 .card-surface {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(249, 244, 236, 0.98) 100%);
   border-color: rgba(107, 62, 38, 0.12);
+  position: relative;
+  overflow: hidden;
   @apply rounded-3xl border shadow-[0_24px_80px_rgba(43,27,18,0.08)];
+}
+
+.card-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(120deg, transparent 18%, rgba(200, 162, 76, 0.12) 48%, transparent 78%);
+  transform: translateX(-60%);
+  transition:
+    transform 450ms ease,
+    opacity 300ms ease;
 }
 
 .card-hover {
   @apply transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(43,27,18,0.12)];
+}
+
+.card-hover:hover::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .dark-panel {
@@ -83,11 +104,32 @@ a {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.16;
+  opacity: 0.2;
   background-image:
     radial-gradient(circle at 20% 20%, rgba(200, 162, 76, 0.5) 0, transparent 18%),
     repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 18px),
     repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 24px);
+}
+
+.section-divider {
+  position: relative;
+}
+
+.section-divider::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(240px, 42vw);
+  height: 18px;
+  transform: translate(-50%, -50%);
+  opacity: 0.18;
+  background:
+    radial-gradient(circle, rgba(200, 162, 76, 0.85) 0 2px, transparent 2px),
+    linear-gradient(90deg, transparent 0%, rgba(200, 162, 76, 0.55) 16%, rgba(200, 162, 76, 0.55) 84%, transparent 100%);
+  background-size: 24px 18px, 100% 2px;
+  background-position: center, center;
+  background-repeat: repeat-x, no-repeat;
 }
 
 .grain-overlay {
