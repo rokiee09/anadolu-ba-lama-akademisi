@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Poppins } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { assetPath } from "@/lib/asset-path";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
   description:
     "Baslangictan ileri seviyeye baglama egitimi, online dersler ve ogrenci odakli muzik akademisi platformu.",
   icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
+    icon: assetPath("/icon.png"),
+    apple: assetPath("/icon.png"),
   },
 };
 

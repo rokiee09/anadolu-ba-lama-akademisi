@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { assetPath } from "@/lib/asset-path";
 import { navigation } from "@/lib/site-data";
 
 export function SiteHeader() {
@@ -20,7 +21,7 @@ export function SiteHeader() {
         >
           <div className="overflow-hidden rounded-full border border-[#6B3E26]/10 bg-[#2B1B12] p-1 shadow-sm">
             <Image
-              src="/logo.png"
+              src={assetPath("/logo.png")}
               alt="Anadolu Baglama Akademisi logo"
               width={44}
               height={44}
@@ -112,7 +113,7 @@ export function SiteHeader() {
                 <div className="flex items-center gap-3">
                   <div className="overflow-hidden rounded-full border border-[#6B3E26]/10 bg-[#2B1B12] p-1 shadow-sm">
                     <Image
-                      src="/logo.png"
+                      src={assetPath("/logo.png")}
                       alt="Anadolu Baglama Akademisi logo"
                       width={38}
                       height={38}
@@ -142,7 +143,7 @@ export function SiteHeader() {
               <div className="flex-1 overflow-y-auto px-5 py-5">
                 <div className="overflow-hidden rounded-[1.5rem] border border-[#6B3E26]/10">
                   <Image
-                    src="/hero-banner.png"
+                    src={assetPath("/hero-banner.png")}
                     alt="Mobil menu banner"
                     width={1024}
                     height={683}

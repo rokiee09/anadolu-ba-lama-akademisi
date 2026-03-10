@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: process.cwd(),
   output: isGithubPages ? "export" : undefined,
   trailingSlash: isGithubPages,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubPages ? `/${repoName}` : "",
+  },
   images: {
     unoptimized: true,
   },

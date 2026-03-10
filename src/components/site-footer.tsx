@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "@/lib/asset-path";
 import { contact, navigation } from "@/lib/site-data";
 
 export function SiteFooter() {
@@ -10,7 +11,7 @@ export function SiteFooter() {
           <div className="flex items-center gap-4">
             <div className="overflow-hidden rounded-full border border-white/10 bg-black/30 p-1">
               <Image
-                src="/logo.png"
+                src={assetPath("/logo.png")}
                 alt="Anadolu Baglama Akademisi logo"
                 width={60}
                 height={60}
@@ -27,7 +28,7 @@ export function SiteFooter() {
 
           <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-black/15">
             <Image
-              src="/hero-banner.png"
+              src={assetPath("/hero-banner.png")}
               alt="Anadolu Baglama Akademisi footer banner"
               width={1024}
               height={683}
