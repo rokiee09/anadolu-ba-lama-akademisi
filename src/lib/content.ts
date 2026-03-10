@@ -78,7 +78,7 @@ export const weeklySchedule = [
 
 export const instructors = [
   {
-    name: "Burak Avci",
+    name: "Ümmet ARDINÇ",
     title: "Kurucu Egitmen",
     summary:
       "Konservatuvar temelli baglama egitimiyle sahne deneyimini bir araya getiren ogretim modeli.",

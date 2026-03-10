@@ -106,26 +106,6 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-
-                <div className="absolute right-4 top-4 hidden max-w-xs rounded-[1.4rem] border border-white/10 bg-[rgba(20,13,9,0.58)] p-4 backdrop-blur-md md:block">
-                  <p className="text-xs uppercase tracking-[0.2em] text-amber-300">
-                    Sinematik vitrin
-                  </p>
-                  <p className="mt-3 text-lg font-semibold text-white">
-                    Anadolu ezgilerini premium bir dijital deneyimle birlestiren hero alan.
-                  </p>
-                </div>
-
-                <div className="absolute bottom-4 left-4 right-4 grid gap-3 md:grid-cols-3">
-                  {academy.heroHighlights.map((feature) => (
-                    <div
-                      key={feature}
-                      className="rounded-2xl border border-white/10 bg-[rgba(20,13,9,0.58)] px-4 py-3 text-sm text-stone-100 backdrop-blur-sm"
-                    >
-                      {feature}
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </AnimatedReveal>
@@ -245,12 +225,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <div>
-                <h2 className="text-3xl font-semibold text-[#2B1B12]">
+              <div className="min-w-0">
+                <h2 className="max-w-[14ch] text-3xl font-semibold leading-tight text-[#2B1B12] lg:max-w-[16ch] xl:max-w-none">
                   20 yillik baglama deneyimi, konservatuvar temeli ve ogrenci odakli anlatim
                 </h2>
                 <p className="mt-4 leading-8 text-[#5D4538]">{instructor.summary}</p>
-                <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                   <div className="rounded-[1.6rem] border border-[#6B3E26]/10 bg-[#6B3E26]/4 p-4">
                     <p className="text-2xl font-semibold text-[#2B1B12]">20 yil</p>
                     <p className="mt-2 text-sm text-[#6A574B]">Baglama deneyimi</p>
@@ -259,7 +239,7 @@ export default function Home() {
                     <p className="text-2xl font-semibold text-[#2B1B12]">300+</p>
                     <p className="mt-2 text-sm text-[#6A574B]">Yetisen ogrenci</p>
                   </div>
-                  <div className="rounded-[1.6rem] border border-[#6B3E26]/10 bg-[#6B3E26]/4 p-4">
+                  <div className="rounded-[1.6rem] border border-[#6B3E26]/10 bg-[#6B3E26]/4 p-4 sm:col-span-2 xl:col-span-1">
                     <p className="text-2xl font-semibold text-[#2B1B12]">Akademik</p>
                     <p className="mt-2 text-sm text-[#6A574B]">Konservatuvar yaklasimi</p>
                   </div>

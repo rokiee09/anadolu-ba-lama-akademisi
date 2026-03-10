@@ -12,9 +12,12 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#6B3E26]/10 bg-[rgba(247,243,237,0.88)] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[#6B3E26]/10 bg-[rgba(247,243,237,0.82)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
-        <Link href="/" className="flex items-center gap-3 text-[#2B1B12]">
+        <Link
+          href="/"
+          className="flex items-center gap-3 rounded-full border border-[#6B3E26]/10 bg-white/65 px-2 py-2 pr-4 text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C]/30"
+        >
           <div className="overflow-hidden rounded-full border border-[#6B3E26]/10 bg-[#2B1B12] p-1 shadow-sm">
             <Image
               src="/logo.png"
@@ -26,16 +29,16 @@ export function SiteHeader() {
             />
           </div>
           <div>
-            <p className="text-lg font-semibold tracking-wide text-[#2B1B12]">
+            <p className="text-sm font-semibold tracking-wide text-[#2B1B12] xl:text-base">
               Anadolu Baglama Akademisi
             </p>
-            <p className="hidden text-xs uppercase tracking-[0.2em] text-[#9C7B51] md:block">
+            <p className="hidden text-[10px] uppercase tracking-[0.2em] text-[#9C7B51] xl:block">
               Baglamanin ustalari burada yetisir
             </p>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-[#6B3E26]/10 bg-white/72 p-2 shadow-[0_18px_48px_rgba(43,27,18,0.08)] xl:flex">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
 
@@ -44,8 +47,10 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-sm transition ${
-                  isActive ? "text-[#C8A24C]" : "text-[#5D4538] hover:text-[#2B1B12]"
+                className={`rounded-full px-3 py-2 text-sm font-medium transition ${
+                  isActive
+                    ? "bg-[#2B1B12] text-[#F7F3ED] shadow-[0_8px_24px_rgba(43,27,18,0.22)]"
+                    : "text-[#5D4538] hover:bg-[#6B3E26]/6 hover:text-[#2B1B12]"
                 }`}
               >
                 {item.label}
@@ -58,7 +63,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setIsMenuOpen((current) => !current)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#6B3E26]/15 text-[#2B1B12] transition hover:border-[#C8A24C] hover:text-[#6B3E26] lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#6B3E26]/15 bg-white/70 text-[#2B1B12] shadow-[0_10px_24px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C] hover:text-[#6B3E26] xl:hidden"
             aria-label="Mobil menuyu ac"
             aria-expanded={isMenuOpen}
           >
@@ -66,14 +71,16 @@ export function SiteHeader() {
           </button>
           <Link
             href="/giris"
-            className="hidden rounded-full border border-[#6B3E26]/15 px-4 py-2 text-sm font-semibold text-[#2B1B12] transition hover:border-[#C8A24C] hover:text-[#6B3E26] md:inline-flex"
+            className="hidden items-center gap-2 rounded-full border border-[#6B3E26]/15 bg-white/72 px-4 py-2 text-sm font-semibold text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:-translate-y-0.5 hover:border-[#C8A24C] hover:text-[#6B3E26] md:inline-flex"
           >
+            <span className="text-base leading-none">◌</span>
             Ogrenci Girisi
           </Link>
           <Link
             href="/iletisim"
-            className="rounded-full bg-[#C8A24C] px-4 py-2 text-sm font-semibold text-[#2B1B12] transition hover:brightness-105"
+            className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(180deg,#d6b868_0%,#c8a24c_100%)] px-4 py-2 text-sm font-semibold text-[#2B1B12] shadow-[0_16px_36px_rgba(200,162,76,0.32)] transition hover:-translate-y-0.5 hover:brightness-105"
           >
+            <span className="text-base leading-none">✦</span>
             Ucretsiz Deneme
           </Link>
         </div>
