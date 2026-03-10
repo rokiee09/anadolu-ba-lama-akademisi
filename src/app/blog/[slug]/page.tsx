@@ -30,10 +30,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       <section className="section-shell py-16">
         <div className="grid gap-6 lg:grid-cols-[1fr_0.35fr]">
           <article className="card-surface p-8">
-            <p className="text-lg leading-8 text-stone-200">{post.excerpt}</p>
+            <p className="text-lg leading-8 text-[#5D4538]">{post.excerpt}</p>
             <div className="mt-8 space-y-6">
               {post.content.map((paragraph) => (
-                <p key={paragraph} className="leading-8 text-stone-300">
+                <p key={paragraph} className="leading-8 text-[#6B584D]">
                   {paragraph}
                 </p>
               ))}
@@ -42,8 +42,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
           <aside className="card-surface p-8">
             <p className="section-kicker">Yonlendirme</p>
-            <h2 className="mt-4 text-2xl font-semibold text-white">Sonraki adim</h2>
-            <p className="mt-4 leading-7 text-stone-300">
+            <h2 className="mt-4 text-2xl font-semibold text-[#2B1B12]">Sonraki adim</h2>
+            <p className="mt-4 leading-7 text-[#6B584D]">
               Icerikten gelen ziyaretciyi deneme dersi formuna veya online derslere yonlendirin.
             </p>
             <div className="mt-6 flex flex-col gap-3">
@@ -55,7 +55,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               </Link>
               <Link
                 href="/online-dersler"
-                className="rounded-full border border-white/20 px-5 py-3 text-center font-semibold text-white transition hover:border-amber-300 hover:text-amber-200"
+                className="rounded-full border border-[#6B3E26]/15 px-5 py-3 text-center font-semibold text-[#2B1B12] transition hover:border-amber-300 hover:text-[#6B3E26]"
               >
                 Online dersleri incele
               </Link>

@@ -15,8 +15,8 @@ export default function IletisimPage() {
       <section className="section-shell py-16">
         <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="card-surface p-8">
-            <h2 className="text-2xl font-semibold text-white">Hizli iletisim</h2>
-            <div className="mt-6 space-y-4 text-stone-200">
+            <h2 className="text-2xl font-semibold text-[#2B1B12]">Hizli iletisim</h2>
+            <div className="mt-6 space-y-4 text-[#5D4538]">
               <p>{contact.phone}</p>
               <p>{contact.email}</p>
               <p>{contact.address}</p>
@@ -39,8 +39,8 @@ export default function IletisimPage() {
           </div>
 
           <div className="card-surface p-8">
-            <h2 className="text-2xl font-semibold text-white">Deneme dersi formu</h2>
-            <p className="mt-4 leading-7 text-stone-300">
+            <h2 className="text-2xl font-semibold text-[#2B1B12]">Deneme dersi formu</h2>
+            <p className="mt-4 leading-7 text-[#6B584D]">
               Form gonderimleri `course_leads` tablosuna yazilacak sekilde hazirlandi.
               Asagidaki alanlari doldurarak basvuru akisini test edebilirsiniz.
             </p>

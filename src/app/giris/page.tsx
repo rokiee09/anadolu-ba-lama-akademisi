@@ -15,7 +15,7 @@ export default function GirisPage() {
       <section className="section-shell py-16">
         <div className="card-surface mb-6 p-6">
           <p className="section-kicker">Demo modu aktif</p>
-          <p className="mt-4 leading-7 text-stone-300">
+          <p className="mt-4 leading-7 text-[#6B584D]">
             Bu alan GitHub Pages icin tarayici tabanli demo oturum kullaniyor.
             Gecerli bir e-posta ve en az 6 karakterli sifre ile portal akisini test edebilirsiniz.
           </p>

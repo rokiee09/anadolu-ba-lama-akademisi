@@ -13,7 +13,7 @@ export default function BasvurularPage() {
       <section className="section-shell py-16">
         <div className="card-surface p-8">
           <p className="section-kicker">Durum</p>
-          <p className="mt-4 leading-7 text-stone-300">
+          <p className="mt-4 leading-7 text-[#6B584D]">
             GitHub Pages uyumlu surumde yeni basvurular tarayici local storage alanina
             kaydediliyor. Baska cihaz veya baska tarayicida gorunmez.
           </p>

@@ -63,12 +63,12 @@ function AuthCard({
 
   return (
     <div className="card-surface p-8">
-      <h2 className="text-2xl font-semibold text-white">{title}</h2>
-      <p className="mt-4 leading-7 text-stone-300">{description}</p>
+      <h2 className="text-2xl font-semibold text-[#2B1B12]">{title}</h2>
+      <p className="mt-4 leading-7 text-[#6B584D]">{description}</p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-4">
         <label className="block space-y-2">
-          <span className="text-sm font-medium text-stone-200">E-posta</span>
+          <span className="text-sm font-medium text-[#5D4538]">E-posta</span>
           <input
             type="email"
             name="email"
@@ -78,7 +78,7 @@ function AuthCard({
         </label>
 
         <label className="block space-y-2">
-          <span className="text-sm font-medium text-stone-200">Sifre</span>
+          <span className="text-sm font-medium text-[#5D4538]">Sifre</span>
           <input
             type="password"
             name="password"
@@ -108,7 +108,7 @@ function AuthCard({
         </button>
       </form>
 
-      <div className="mt-6 text-sm text-stone-400">{footer}</div>
+      <div className="mt-6 text-sm text-[#7A665A]">{footer}</div>
     </div>
   );
 }

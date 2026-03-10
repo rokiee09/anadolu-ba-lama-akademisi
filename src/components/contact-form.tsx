@@ -82,7 +82,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
         <label className="space-y-2">
-          <span className="text-sm font-medium text-stone-200">Ad soyad</span>
+          <span className="text-sm font-medium text-[#5D4538]">Ad soyad</span>
           <input
             name="fullName"
             className="w-full rounded-2xl border border-white/10 bg-stone-950/60 px-4 py-3 text-white outline-none ring-0 transition placeholder:text-stone-500 focus:border-amber-300"
@@ -92,7 +92,7 @@ export function ContactForm() {
         </label>
 
         <label className="space-y-2">
-          <span className="text-sm font-medium text-stone-200">Telefon</span>
+          <span className="text-sm font-medium text-[#5D4538]">Telefon</span>
           <input
             name="phone"
             className="w-full rounded-2xl border border-white/10 bg-stone-950/60 px-4 py-3 text-white outline-none ring-0 transition placeholder:text-stone-500 focus:border-amber-300"
@@ -102,7 +102,7 @@ export function ContactForm() {
         </label>
 
         <label className="space-y-2">
-          <span className="text-sm font-medium text-stone-200">E-posta</span>
+          <span className="text-sm font-medium text-[#5D4538]">E-posta</span>
           <input
             name="email"
             type="email"
@@ -113,7 +113,7 @@ export function ContactForm() {
         </label>
 
         <label className="space-y-2">
-          <span className="text-sm font-medium text-stone-200">Seviye</span>
+          <span className="text-sm font-medium text-[#5D4538]">Seviye</span>
           <select
             name="level"
             defaultValue=""
@@ -132,7 +132,7 @@ export function ContactForm() {
       </div>
 
       <label className="space-y-2">
-        <span className="text-sm font-medium text-stone-200">Ilgi alani</span>
+        <span className="text-sm font-medium text-[#5D4538]">Ilgi alani</span>
         <select
           name="interest"
           defaultValue=""
@@ -150,7 +150,7 @@ export function ContactForm() {
       </label>
 
       <label className="space-y-2">
-        <span className="text-sm font-medium text-stone-200">Mesaj</span>
+        <span className="text-sm font-medium text-[#5D4538]">Mesaj</span>
         <textarea
           name="message"
           rows={5}

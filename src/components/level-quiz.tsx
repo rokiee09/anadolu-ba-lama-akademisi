@@ -77,17 +77,20 @@ export function LevelQuiz() {
   return (
     <div className="card-surface p-8">
       <p className="section-kicker">Baglama seviyeni ogren</p>
-      <h2 className="mt-4 text-3xl font-semibold text-white">
+      <h2 className="mt-4 text-3xl font-semibold text-[#2B1B12]">
         3 soruda size en uygun baslangic seviyesini bulalim
       </h2>
 
       <div className="mt-8 space-y-6">
         {questions.map((item, index) => (
-          <div key={item.id} className="rounded-[2rem] border border-white/10 bg-black/15 p-5">
+          <div
+            key={item.id}
+            className="rounded-[2rem] border border-[#6B3E26]/10 bg-[#6B3E26]/[0.04] p-5"
+          >
             <p className="text-sm uppercase tracking-[0.2em] text-amber-300">
               Soru {index + 1}
             </p>
-            <h3 className="mt-3 text-xl font-semibold text-white">{item.question}</h3>
+            <h3 className="mt-3 text-xl font-semibold text-[#2B1B12]">{item.question}</h3>
             <div className="mt-4 grid gap-3">
               {item.options.map((option) => {
                 const isSelected = answers[item.id] === option.score;
@@ -101,8 +104,8 @@ export function LevelQuiz() {
                     }
                     className={`rounded-2xl border px-4 py-3 text-left transition ${
                       isSelected
-                        ? "border-[#C8A24C] bg-[#C8A24C]/15 text-white"
-                        : "border-white/10 bg-white/5 text-stone-200 hover:border-[#C8A24C]/40 hover:bg-white/8"
+                        ? "border-[#C8A24C] bg-[#C8A24C]/15 text-[#2B1B12]"
+                        : "border-[#6B3E26]/10 bg-white/65 text-[#5D4538] hover:border-[#C8A24C]/40 hover:bg-white/85"
                     }`}
                   >
                     {option.label}

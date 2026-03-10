@@ -32,13 +32,13 @@ export default async function LessonDetailPage({
       <section className="section-shell py-16">
         <div className="grid gap-6 lg:grid-cols-[1fr_0.45fr]">
           <article className="card-surface p-8">
-            <div className="aspect-video rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(215,168,74,0.24),rgba(255,255,255,0.04))]" />
-            <p className="mt-6 text-lg leading-8 text-stone-300">{lesson.description}</p>
+            <div className="aspect-video rounded-[2rem] border border-[#6B3E26]/10 bg-[linear-gradient(135deg,rgba(215,168,74,0.24),rgba(107,62,38,0.04))]" />
+            <p className="mt-6 text-lg leading-8 text-[#6B584D]">{lesson.description}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {lesson.assets.map((asset) => (
                 <span
                   key={asset}
-                  className="rounded-full border border-white/10 px-4 py-2 text-sm uppercase tracking-[0.2em] text-stone-300"
+                  className="rounded-full border border-[#6B3E26]/10 px-4 py-2 text-sm uppercase tracking-[0.2em] text-[#7A665A]"
                 >
                   {asset}
                 </span>
@@ -48,8 +48,8 @@ export default async function LessonDetailPage({
 
           <aside className="card-surface p-8">
             <p className="section-kicker">Aksiyon</p>
-            <h2 className="mt-4 text-2xl font-semibold text-white">Portalde gor</h2>
-            <p className="mt-4 leading-7 text-stone-300">
+            <h2 className="mt-4 text-2xl font-semibold text-[#2B1B12]">Portalde gor</h2>
+            <p className="mt-4 leading-7 text-[#6B584D]">
               Bu modul, ogrenci portali icinde ilerleme takibi ve materyal erisimi ile sunulabilir.
             </p>
             <div className="mt-6 flex flex-col gap-3">
@@ -61,7 +61,7 @@ export default async function LessonDetailPage({
               </Link>
               <Link
                 href="/iletisim"
-                className="rounded-full border border-white/20 px-5 py-3 text-center font-semibold text-white transition hover:border-amber-300 hover:text-amber-200"
+                className="rounded-full border border-[#6B3E26]/15 px-5 py-3 text-center font-semibold text-[#2B1B12] transition hover:border-amber-300 hover:text-[#6B3E26]"
               >
                 Satin alma sor
               </Link>

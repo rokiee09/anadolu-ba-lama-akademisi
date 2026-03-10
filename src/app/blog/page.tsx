@@ -22,8 +22,8 @@ export default function BlogPage() {
               <p className="section-kicker">
                 {post.category} • {post.readTime}
               </p>
-              <h2 className="mt-4 text-2xl font-semibold text-white">{post.title}</h2>
-              <p className="mt-4 leading-7 text-stone-300">{post.excerpt}</p>
+              <h2 className="mt-4 text-2xl font-semibold text-[#2B1B12]">{post.title}</h2>
+              <p className="mt-4 leading-7 text-[#6B584D]">{post.excerpt}</p>
             </Link>
           ))}
         </div>

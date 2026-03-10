@@ -141,10 +141,10 @@ export function BaglamaTuner() {
   return (
     <div className="card-surface p-8">
       <p className="section-kicker">Online akort araci</p>
-      <h2 className="mt-4 text-3xl font-semibold text-white">
+      <h2 className="mt-4 text-3xl font-semibold text-[#2B1B12]">
         Mikrofonla sesi algila, hedef tele gore akortunu kontrol et
       </h2>
-      <p className="mt-4 leading-7 text-stone-300">
+      <p className="mt-4 leading-7 text-[#6B584D]">
         Bu demo arac, baglama tellerini `La - Re - Sol` referansi uzerinden
         izler. Tarayicida mikrofon izni vererek calmanizi test edebilirsiniz.
       </p>
@@ -159,34 +159,34 @@ export function BaglamaTuner() {
               className={`rounded-[2rem] border p-5 transition ${
                 active
                   ? "border-[#C8A24C]/50 bg-[#C8A24C]/12"
-                  : "border-white/10 bg-black/15"
+                  : "border-[#6B3E26]/10 bg-[#6B3E26]/[0.04]"
               }`}
             >
               <p className="text-sm uppercase tracking-[0.2em] text-amber-300">
                 {target.label}
               </p>
-              <p className="mt-3 text-2xl font-semibold text-white">{target.note}</p>
-              <p className="mt-2 text-stone-400">{target.frequency.toFixed(2)} Hz</p>
+              <p className="mt-3 text-2xl font-semibold text-[#2B1B12]">{target.note}</p>
+              <p className="mt-2 text-[#7A665A]">{target.frequency.toFixed(2)} Hz</p>
             </div>
           );
         })}
       </div>
 
-      <div className="mt-8 rounded-[2rem] border border-white/10 bg-black/20 p-6">
+      <div className="mt-8 rounded-[2rem] border border-[#6B3E26]/10 bg-[#6B3E26]/[0.04] p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-amber-300">
               Algilanan ses
             </p>
-            <p className="mt-3 text-4xl font-semibold text-white">
+            <p className="mt-3 text-4xl font-semibold text-[#2B1B12]">
               {frequency ? `${frequency.toFixed(2)} Hz` : "--"}
             </p>
-            <p className="mt-2 text-stone-300">
+            <p className="mt-2 text-[#6B584D]">
               {closestTarget
                 ? `${closestTarget.label} icin en yakin nota: ${closestTarget.note}`
                 : "Sazi calmaya baslayin, frekans algilansin."}
             </p>
-            <p className="mt-1 text-sm text-stone-400">
+            <p className="mt-1 text-sm text-[#7A665A]">
               {centDifference !== null
                 ? centDifference === 0
                   ? "Akort tam ortada."

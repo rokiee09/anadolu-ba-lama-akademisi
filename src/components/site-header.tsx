@@ -13,11 +13,11 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#6B3E26]/10 bg-[rgba(247,243,237,0.82)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
+    <header className="sticky top-0 z-50 border-b border-[#6B3E26]/10 bg-[rgba(247,243,237,0.9)] backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
         <Link
           href="/"
-          className="flex items-center gap-3 rounded-full border border-[#6B3E26]/10 bg-white/65 px-2 py-2 pr-4 text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C]/30"
+          className="min-w-0 flex items-center gap-2 rounded-full border border-[#6B3E26]/10 bg-white/75 px-2 py-2 pr-3 text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C]/30 sm:gap-3 sm:pr-4"
         >
           <div className="overflow-hidden rounded-full border border-[#6B3E26]/10 bg-[#2B1B12] p-1 shadow-sm">
             <Image
@@ -25,15 +25,15 @@ export function SiteHeader() {
               alt="Anadolu Baglama Akademisi logo"
               width={44}
               height={44}
-              className="h-11 w-11 rounded-full object-cover"
+              className="h-9 w-9 rounded-full object-cover sm:h-11 sm:w-11"
               priority
             />
           </div>
-          <div>
-            <p className="text-sm font-semibold tracking-wide text-[#2B1B12] xl:text-base">
+          <div className="min-w-0">
+            <p className="truncate text-xs font-semibold tracking-wide text-[#2B1B12] sm:text-sm xl:text-base">
               Anadolu Baglama Akademisi
             </p>
-            <p className="hidden text-[10px] uppercase tracking-[0.2em] text-[#9C7B51] xl:block">
+            <p className="hidden text-[10px] uppercase tracking-[0.2em] text-[#9C7B51] lg:block xl:text-[11px]">
               Baglamanin ustalari burada yetisir
             </p>
           </div>
@@ -60,7 +60,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="shrink-0 flex items-center gap-2 sm:gap-3">
           <button
             type="button"
             onClick={() => setIsMenuOpen((current) => !current)}
@@ -79,12 +79,35 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/iletisim"
-            className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(180deg,#d6b868_0%,#c8a24c_100%)] px-4 py-2 text-sm font-semibold text-[#2B1B12] shadow-[0_16px_36px_rgba(200,162,76,0.32)] transition hover:-translate-y-0.5 hover:brightness-105"
+            className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(180deg,#d6b868_0%,#c8a24c_100%)] px-3 py-2 text-xs font-semibold text-[#2B1B12] shadow-[0_16px_36px_rgba(200,162,76,0.32)] transition hover:-translate-y-0.5 hover:brightness-105 sm:px-4 sm:text-sm"
           >
             <span className="text-base leading-none">✦</span>
-            Ucretsiz Deneme
+            <span className="hidden sm:inline">Ucretsiz Deneme</span>
+            <span className="sm:hidden">Deneme</span>
           </Link>
         </div>
+      </div>
+
+      <div className="border-t border-[#6B3E26]/8 xl:hidden">
+        <nav className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3 sm:px-6">
+          {navigation.map((item) => {
+            const isActive = pathname === item.href;
+
+            return (
+              <Link
+                key={`${item.href}-mobile-strip`}
+                href={item.href}
+                className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition ${
+                  isActive
+                    ? "border-[#2B1B12] bg-[#2B1B12] text-[#F7F3ED]"
+                    : "border-[#6B3E26]/12 bg-white/70 text-[#5D4538]"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
       </div>
 
       <AnimatePresence>

@@ -17,10 +17,10 @@ export default function DersProgramiPage() {
               key={`${item.day}-${item.group}`}
               className="card-surface grid gap-4 p-6 md:grid-cols-[0.8fr_1.2fr_0.8fr_0.4fr] md:items-center"
             >
-              <p className="text-xl font-semibold text-white">{item.day}</p>
-              <p className="text-stone-200">{item.group}</p>
+              <p className="text-xl font-semibold text-[#2B1B12]">{item.day}</p>
+              <p className="text-[#5D4538]">{item.group}</p>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">{item.time}</p>
-              <p className="text-right text-sm text-stone-400">{item.mode}</p>
+              <p className="text-right text-sm text-[#7A665A]">{item.mode}</p>
             </article>
           ))}
         </div>
