@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f3ed;
+  --foreground: #2b1b12;
+  --surface: #fffdf9;
+  --muted: #6b584d;
+  --accent: #c8a24c;
+  --wood: #6b3e26;
+  --deep: #2b1b12;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-playfair);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(circle at top, rgba(200, 162, 76, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(107, 62, 38, 0.04), transparent 18%),
+    linear-gradient(90deg, rgba(107, 62, 38, 0.015) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(107, 62, 38, 0.015) 1px, transparent 1px);
+  background-size: auto, auto, 36px 36px, 36px 36px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-shell {
+  @apply mx-auto max-w-7xl px-6;
+}
+
+.section-kicker {
+  color: var(--accent);
+  @apply text-sm font-semibold uppercase tracking-[0.25em];
+}
+
+.section-title {
+  font-family: var(--font-playfair), Georgia, serif;
+  color: var(--deep);
+  @apply text-3xl font-semibold md:text-5xl;
+}
+
+.card-surface {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(249, 244, 236, 0.98) 100%);
+  border-color: rgba(107, 62, 38, 0.12);
+  @apply rounded-3xl border shadow-[0_24px_80px_rgba(43,27,18,0.08)];
+}
+
+.card-hover {
+  @apply transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(43,27,18,0.12)];
+}
+
+.dark-panel {
+  background:
+    radial-gradient(circle at top, rgba(200, 162, 76, 0.24), transparent 35%),
+    linear-gradient(160deg, rgba(43, 27, 18, 1) 0%, rgba(57, 35, 24, 0.96) 45%, rgba(20, 13, 9, 1) 100%);
+  @apply text-[#F7F3ED];
+}
+
+.motif-overlay {
+  position: relative;
+}
+
+.motif-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(200, 162, 76, 0.5) 0, transparent 18%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 18px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 24px);
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.9) 0.6px, transparent 0.6px);
+  background-size: 16px 16px;
+}
+
+.hero-image-animate {
+  animation: hero-pan 16s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.hero-vignette {
+  background:
+    radial-gradient(circle at 50% 30%, transparent 0%, rgba(20, 13, 9, 0.08) 42%, rgba(20, 13, 9, 0.44) 100%),
+    linear-gradient(180deg, rgba(20, 13, 9, 0.14), rgba(20, 13, 9, 0.32));
+}
+
+.drawer-backdrop {
+  background: rgba(20, 13, 9, 0.38);
+  backdrop-filter: blur(10px);
+}
+
+.drawer-panel {
+  background:
+    radial-gradient(circle at top, rgba(200, 162, 76, 0.16), transparent 35%),
+    linear-gradient(180deg, rgba(255, 250, 244, 0.98), rgba(247, 243, 237, 0.99));
+  box-shadow: -24px 0 80px rgba(43, 27, 18, 0.16);
+}
+
+.primary-button {
+  background: linear-gradient(180deg, #d4b15f 0%, #c8a24c 100%);
+  color: var(--deep);
+  @apply rounded-full px-6 py-4 text-center font-semibold transition duration-300 hover:-translate-y-0.5 hover:brightness-105;
+}
+
+.secondary-button {
+  border-color: rgba(107, 62, 38, 0.18);
+  color: var(--deep);
+  @apply rounded-full border px-6 py-4 text-center font-semibold transition duration-300 hover:border-[#C8A24C] hover:text-[#6B3E26];
+}
+
+@keyframes hero-pan {
+  0% {
+    transform: scale(1.03) translateY(0px);
+  }
+
+  100% {
+    transform: scale(1.08) translateY(-10px);
+  }
+}
