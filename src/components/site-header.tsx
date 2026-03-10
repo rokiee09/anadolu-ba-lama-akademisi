@@ -19,8 +19,15 @@ export function SiteHeader() {
           href="/"
           className="shrink-0 flex items-center gap-3 rounded-full border border-[#6B3E26]/10 bg-white/75 px-3 py-2 pr-4 text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C]/30"
         >
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#6B3E26_0%,#2B1B12_100%)] text-[11px] font-semibold tracking-[0.22em] text-[#F7F3ED] shadow-[0_10px_24px_rgba(43,27,18,0.18)] sm:h-12 sm:w-12">
-            ABA
+          <div className="overflow-hidden rounded-2xl border border-[#6B3E26]/10 bg-[#2B1B12] p-1 shadow-[0_10px_24px_rgba(43,27,18,0.18)]">
+            <Image
+              src={assetPath("/icon.png")}
+              alt="Anadolu Baglama Akademisi ikon"
+              width={48}
+              height={48}
+              className="h-9 w-9 rounded-[0.8rem] object-cover sm:h-10 sm:w-10"
+              priority
+            />
           </div>
           <div className="min-w-0">
             <p className="text-[10px] uppercase tracking-[0.24em] text-[#9C7B51] sm:text-[11px]">
@@ -130,8 +137,14 @@ export function SiteHeader() {
             >
               <div className="flex items-center justify-between border-b border-[#6B3E26]/10 px-5 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#6B3E26_0%,#2B1B12_100%)] text-[10px] font-semibold tracking-[0.22em] text-[#F7F3ED] shadow-[0_10px_24px_rgba(43,27,18,0.18)]">
-                    ABA
+                  <div className="overflow-hidden rounded-2xl border border-[#6B3E26]/10 bg-[#2B1B12] p-1 shadow-[0_10px_24px_rgba(43,27,18,0.18)]">
+                    <Image
+                      src={assetPath("/icon.png")}
+                      alt="Anadolu Baglama Akademisi ikon"
+                      width={40}
+                      height={40}
+                      className="h-8 w-8 rounded-[0.7rem] object-cover"
+                    />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-[#2B1B12]">
