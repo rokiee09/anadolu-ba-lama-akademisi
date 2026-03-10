@@ -17,23 +17,19 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
         <Link
           href="/"
-          className="flex items-center gap-2 rounded-full border border-[#6B3E26]/10 bg-white/75 px-2 py-2 pr-3 text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C]/30 sm:gap-3 sm:pr-4 xl:min-w-[250px]"
+          className="shrink-0 flex items-center gap-3 rounded-full border border-[#6B3E26]/10 bg-white/75 px-3 py-2 pr-4 text-[#2B1B12] shadow-[0_14px_40px_rgba(43,27,18,0.08)] transition hover:border-[#C8A24C]/30"
         >
-          <div className="overflow-hidden rounded-2xl border border-[#6B3E26]/10 bg-white px-2 py-1 shadow-sm">
-            <Image
-              src={assetPath("/logo.png")}
-              alt="Anadolu Baglama Akademisi logo"
-              width={120}
-              height={64}
-              className="h-9 w-auto max-w-[70px] object-contain sm:h-11 sm:max-w-[86px]"
-              priority
-            />
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#6B3E26_0%,#2B1B12_100%)] text-[11px] font-semibold tracking-[0.22em] text-[#F7F3ED] shadow-[0_10px_24px_rgba(43,27,18,0.18)] sm:h-12 sm:w-12">
+            ABA
           </div>
-          <div className="min-w-0 xl:min-w-[140px]">
-            <p className="truncate text-xs font-semibold tracking-wide text-[#2B1B12] sm:text-sm xl:text-base">
-              Anadolu Baglama Akademisi
+          <div className="min-w-0">
+            <p className="text-[10px] uppercase tracking-[0.24em] text-[#9C7B51] sm:text-[11px]">
+              Anadolu
             </p>
-            <p className="hidden text-[10px] uppercase tracking-[0.2em] text-[#9C7B51] lg:block xl:text-[11px]">
+            <p className="truncate text-sm font-semibold tracking-wide text-[#2B1B12] sm:text-base">
+              Baglama Akademisi
+            </p>
+            <p className="hidden text-[10px] uppercase tracking-[0.2em] text-[#9C7B51] 2xl:block">
               Baglamanin ustalari burada yetisir
             </p>
           </div>
@@ -134,21 +130,15 @@ export function SiteHeader() {
             >
               <div className="flex items-center justify-between border-b border-[#6B3E26]/10 px-5 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="overflow-hidden rounded-2xl border border-[#6B3E26]/10 bg-white px-2 py-1 shadow-sm">
-                    <Image
-                      src={assetPath("/logo.png")}
-                      alt="Anadolu Baglama Akademisi logo"
-                      width={96}
-                      height={52}
-                      className="h-9 w-auto max-w-[72px] object-contain"
-                    />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#6B3E26_0%,#2B1B12_100%)] text-[10px] font-semibold tracking-[0.22em] text-[#F7F3ED] shadow-[0_10px_24px_rgba(43,27,18,0.18)]">
+                    ABA
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-[#2B1B12]">
-                      Anadolu Baglama Akademisi
+                      Baglama Akademisi
                     </p>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-[#9C7B51]">
-                      Mobil menu
+                      Anadolu markasi
                     </p>
                   </div>
                 </div>
